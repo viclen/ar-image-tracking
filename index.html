@@ -52,13 +52,27 @@
     <a-nft type="nft" url="ar-image-tracking/marker/pringles" smooth="true" smoothCount="20" smoothTolerance="1"
       smoothThreshold="10">
 
-      <a-entity position="0 0 0" scale="10 10 10">
-        <a-entity rotation="0 0 0"
-          animation="property: rotation; to: 0 0 360; loop: true; easing: linear; dur: 10000"
+      <a-entity position="0 0 -10" scale="10 10 10">
+        <a-entity pringles id="pringles" rotation="0 0 0"
           obj-model="obj: url(/ar-image-tracking/models/pringles/pringles.obj); mtl: url(/ar-image-tracking/models/pringles/pringles.mtl)">
         </a-entity>
       </a-entity>
     </a-nft>
     <a-entity camera></a-entity>
   </a-scene>
+
+  <script>
+    AFRAME.registerComponent('pringles', {
+      init() {
+        const pringles = document.getElementById('pringles');
+
+        pringles.setAttribute("animation", "property: rotation; to: 0 0 360; loop: true; easing: linear; dur: 3000");
+        setTimeout(() => {
+          pringles.setAttribute("animation", "");
+          pringles.setAttribute("rotation", "0 0 0");
+        }, 3000);
+      }
+    })
+
+  </script>
 </body>
