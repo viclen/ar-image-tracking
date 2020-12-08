@@ -14,14 +14,25 @@
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
 
   <script>
+    AFRAME.registerComponent('object', {
+      init: function () {
+        // Wait for model to load.
+        this.el.addEventListener('model-loaded', () => {
+          alert('model-loaded');
+
+          document.querySelector('.loading').remove();
+        });
+      }
+    });
+
     AFRAME.registerComponent("helix", {
-      init() {
+      init: function () {
         const helix = document.getElementById("helix");
         const marker = document.getElementById("marker");
 
         marker.addEventListener("markerFound", () => {
           helix.setAttribute("visible", true);
-          helix.setAttribute("animation", "property: rotation; to: 0 0 360; loop: true; easing: linear; dur: 3000");
+          helix.setAttribute("animation", "property: rotation; to: 0 0 360; loop: true; easing: linear; dur: 500");
           setTimeout(() => {
             helix.setAttribute("visible", false);
           }, 3000);
@@ -31,7 +42,7 @@
   </script>
 
   <style>
-    .arjs-loader {
+    .loading {
       height: 100%;
       width: 100%;
       position: absolute;
@@ -45,7 +56,7 @@
       font-family: Verdana, Geneva, Tahoma, sans-serif;
     }
 
-    .arjs-loader div {
+    .loading div {
       text-align: center;
       font-size: 1.25em;
       color: white;
@@ -59,7 +70,7 @@
 
 <body style="margin : 0px; overflow: hidden;">
   <!-- minimal loader shown until image descriptors are loaded -->
-  <div class="arjs-loader">
+  <div class="loading">
     <div>Loading, please wait...</div>
   </div>
 
@@ -70,11 +81,11 @@
       smoothTolerance="1" smoothThreshold="10" emitevents="true">
 
       <a-entity position="0 0 -10" scale="10 10 10">
-        <a-entity pringles visible="true" id="pringles" rotation="0 0 0"
+        <a-entity object visible="true" rotation="0 0 0"
           obj-model="obj: url(/ar-image-tracking/models/pringles/pringles.obj); mtl: url(/ar-image-tracking/models/pringles/pringles.mtl)">
         </a-entity>
 
-        <a-entity helix visible="false" id="helix" rotation="0 0 0" scale="0.2 0.2 0.2"
+        <a-entity helix visible="false" id="helix" rotation="0 0 0" scale="0.01 0.01 0.01"
           obj-model="obj: url(/ar-image-tracking/models/helix/helix.obj); mtl: url(/ar-image-tracking/models/helix/helix.mtl)">
         </a-entity>
       </a-entity>
