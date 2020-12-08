@@ -51,7 +51,10 @@
 
     <a-nft type="nft" url="ar-image-tracking/marker/pringles" smooth="true" smoothCount="10" smoothTolerance="0.01"
       smoothThreshold="5">
-      <a-sphere color="yellow" radius="5"></a-sphere>
+
+      <a-entity position="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"
+        obj-model="obj: url(./models/pringles/pringles.obj); mtl: url(./models/pringles/pringles.mtl)">
+      </a-entity>
     </a-nft>
     <a-entity camera></a-entity>
   </a-scene>
