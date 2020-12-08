@@ -7,7 +7,7 @@
   <title>AR PRINGLES</title>
 
   <script
-    src='https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js'></script>
+    src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
 
   <style>
     .arjs-loader {
@@ -32,25 +32,25 @@
   </style>
 
   <!-- rawgithack development URL -->
-  <script src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js'></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
 
   <script>
-    alert('versao 1');
+    alert("versao 2");
   </script>
 </head>
 
-<body style='margin : 0px; overflow: hidden;'>
+<body style="margin : 0px; overflow: hidden;">
   <!-- minimal loader shown until image descriptors are loaded -->
-  <div class="arjs-loader">
+  <!-- <div class="arjs-loader">
     <div>Loading, please wait...</div>
-  </div>
-  
-  <!-- <a-scene vr-mode-ui='enabled: false;' renderer="logarithmicDepthBuffer: true;" embedded
-    arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
+  </div> -->
 
-    <a-nft type='nft' url='pringles/image/pringles' smooth='true' smoothCount='10' smoothTolerance='0.01'
-      smoothThreshold='5'>
-      <a-entity gltf-model='trex/scene.gltf' scale="5 5 5" position="50 150 -100">
+  <!-- <a-scene vr-mode-ui="enabled: false;" renderer="logarithmicDepthBuffer: true;" embedded
+    arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;">
+
+    <a-nft type="nft" url="pringles/image/pringles" smooth="true" smoothCount="10" smoothTolerance="0.01"
+      smoothThreshold="5">
+      <a-entity gltf-model="trex/scene.gltf" scale="5 5 5" position="50 150 -100">
       </a-entity>
     </a-nft>
     <a-entity camera></a-entity>
@@ -74,8 +74,8 @@
       <img id="myCustomImage" src="./img/preload.jpg">
     </a-assets>
 
-    <a-nft type='nft' url='pringles/image/pringles' smooth='true' smoothCount='10' smoothTolerance='0.01'
-      smoothThreshold='5'>
+    <a-nft type="nft" url="marker/pringles" smooth="true" smoothCount="10" smoothTolerance="0.01"
+      smoothThreshold="5">
       <a-entity visible="true" id="screen" rotation="-90 360 0">
         <a-image href="https://www.sadia.com.br/quantomaisvocesabe/receitas/?ingredientes=linguiças" id="index1"
           class="cantap" position="0.5 2 -1" rotation="0 0 0" scale="1 1 1" width="0.9" height="0.9" opacity="1"
