@@ -19,15 +19,13 @@
         const pringles = document.getElementById("pringles");
         const marker = document.getElementById("pringles-marker");
 
-        pringles.setAttribute("visible", true);
-        pringles.setAttribute("animation", "property: rotation; to: 0 0 360; loop: true; easing: linear; dur: 3000");
-        setTimeout(() => {
-          pringles.setAttribute("animation", "");
-          pringles.setAttribute("rotation", "0 0 0");
-        }, 3000);
-
         marker.addEventListener("markerFound", () => {
-          alert("marker found");
+          pringles.setAttribute("visible", true);
+          pringles.setAttribute("animation", "property: rotation; to: 0 0 360; loop: true; easing: linear; dur: 3000");
+          setTimeout(() => {
+            pringles.setAttribute("animation", "");
+            pringles.setAttribute("rotation", "0 0 0");
+          }, 3000);
         });
       }
     });
