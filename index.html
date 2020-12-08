@@ -14,17 +14,16 @@
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
 
   <script>
-    AFRAME.registerComponent("pringles", {
+    AFRAME.registerComponent("helix", {
       init() {
-        const pringles = document.getElementById("pringles");
-        const marker = document.getElementById("pringles-marker");
+        const helix = document.getElementById("helix");
+        const marker = document.getElementById("marker");
 
         marker.addEventListener("markerFound", () => {
-          pringles.setAttribute("visible", true);
-          pringles.setAttribute("animation", "property: rotation; to: 0 0 360; loop: true; easing: linear; dur: 3000");
+          helix.setAttribute("visible", true);
+          helix.setAttribute("animation", "property: rotation; to: 0 0 360; loop: true; easing: linear; dur: 3000");
           setTimeout(() => {
-            pringles.setAttribute("animation", "");
-            pringles.setAttribute("rotation", "0 0 0");
+            helix.setAttribute("visible", false);
           }, 3000);
         });
       }
@@ -67,12 +66,16 @@
   <a-scene vr-mode-ui="enabled: false;" renderer="logarithmicDepthBuffer: true;" embedded
     arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;">
 
-    <a-nft type="nft" id="pringles-marker" url="ar-image-tracking/marker/pringles" smooth="true" smoothCount="50"
+    <a-nft type="nft" id="marker" url="ar-image-tracking/marker/pringles" smooth="true" smoothCount="50"
       smoothTolerance="1" smoothThreshold="10" emitevents="true">
 
       <a-entity position="0 0 -10" scale="10 10 10">
-        <a-entity pringles visible="false" id="pringles" rotation="0 0 0"
+        <a-entity pringles visible="true" id="pringles" rotation="0 0 0"
           obj-model="obj: url(/ar-image-tracking/models/pringles/pringles.obj); mtl: url(/ar-image-tracking/models/pringles/pringles.mtl)">
+        </a-entity>
+
+        <a-entity helix visible="false" id="helix" rotation="0 0 0"
+          obj-model="obj: url(/ar-image-tracking/models/helix/helix.obj); mtl: url(/ar-image-tracking/models/helix/helix.mtl)">
         </a-entity>
       </a-entity>
     </a-nft>
