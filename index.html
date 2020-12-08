@@ -19,7 +19,6 @@
         // Wait for model to load.
         this.el.addEventListener('model-loaded', () => {
           alert('model-loaded');
-
           document.querySelector('.loading').remove();
         });
       }
@@ -29,13 +28,19 @@
       init: function () {
         const helix = document.getElementById("helix");
         const marker = document.getElementById("marker");
+        const scene = document.querySelector("[scene]");
 
         marker.addEventListener("markerFound", () => {
+          scene.setAttribute("animation", "property: scale; to: 10 10 10; loop: false; easing: elastic; dur: 200");
+
           helix.setAttribute("visible", true);
           helix.setAttribute("animation", "property: rotation; to: 0 0 360; loop: true; easing: linear; dur: 500");
           setTimeout(() => {
+            scene.setAttribute("animation", "");
+            scene.setAttribute("scale", "10 10 10");
+
             helix.setAttribute("visible", false);
-          }, 3000);
+          }, 2000);
         });
       }
     });
@@ -64,7 +69,7 @@
   </style>
 
   <script>
-    alert("versao 18");
+    alert("versao 19");
   </script>
 </head>
 
@@ -80,12 +85,12 @@
     <a-nft type="nft" id="marker" url="ar-image-tracking/marker/pringles" smooth="true" smoothCount="50"
       smoothTolerance="1" smoothThreshold="10" emitevents="true">
 
-      <a-entity position="0 0 -10" scale="10 10 10">
+      <a-entity scene position="0 0 10" scale="10 10 10">
         <a-entity object visible="true" rotation="0 0 0"
           obj-model="obj: url(/ar-image-tracking/models/pringles/pringles.obj); mtl: url(/ar-image-tracking/models/pringles/pringles.mtl)">
         </a-entity>
 
-        <a-entity helix visible="false" id="helix" rotation="0 0 0" scale="0.01 0.01 0.01"
+        <a-entity helix visible="false" id="helix" rotation="0 0 0" scale="0.006 0.01 0.006"
           obj-model="obj: url(/ar-image-tracking/models/helix/helix.obj); mtl: url(/ar-image-tracking/models/helix/helix.mtl)">
         </a-entity>
       </a-entity>
