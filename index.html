@@ -49,11 +49,11 @@
   <a-scene vr-mode-ui="enabled: false;" renderer="logarithmicDepthBuffer: true;" embedded
     arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;">
 
-    <a-nft type="nft" url="ar-image-tracking/marker/pringles" smooth="true" smoothCount="20" smoothTolerance="1"
-      smoothThreshold="10">
+    <a-nft type="nft" id="pringles-marker" url="ar-image-tracking/marker/pringles" smooth="true" smoothCount="50"
+      smoothTolerance="1" smoothThreshold="10" emitevents="true">
 
       <a-entity position="0 0 -10" scale="10 10 10">
-        <a-entity pringles id="pringles" rotation="0 0 0"
+        <a-entity pringles visible="false" id="pringles" rotation="0 0 0"
           obj-model="obj: url(/ar-image-tracking/models/pringles/pringles.obj); mtl: url(/ar-image-tracking/models/pringles/pringles.mtl)">
         </a-entity>
       </a-entity>
@@ -65,14 +65,20 @@
     AFRAME.registerComponent('pringles', {
       init() {
         const pringles = document.getElementById('pringles');
+        const marker = document.getElementById('pringles-marker');
 
-        pringles.setAttribute("animation", "property: rotation; to: 0 0 360; loop: true; easing: linear; dur: 3000");
-        setTimeout(() => {
-          pringles.setAttribute("animation", "");
-          pringles.setAttribute("rotation", "0 0 0");
-        }, 3000);
+        marker.addEventListener('markerFound', () => {
+          pringles.setAttribute('visible', true);
+          pringles.setAttribute("animation", "property: rotation; to: 0 0 360; loop: true; easing: linear; dur: 3000");
+          setTimeout(() => {
+            pringles.setAttribute("animation", "");
+            pringles.setAttribute("rotation", "0 0 0");
+          }, 3000);
+        });
+
       }
-    })
+    });
+
 
   </script>
 </body>
