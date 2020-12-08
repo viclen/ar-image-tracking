@@ -36,7 +36,7 @@
   </style>
 
   <script>
-    alert("versao 15");
+    alert("versao 16");
   </script>
 </head>
 
@@ -67,15 +67,16 @@
         const pringles = document.getElementById('pringles');
         const marker = document.getElementById('pringles-marker');
 
-        marker.addEventListener('markerFound', () => {
-          pringles.setAttribute('visible', true);
-          pringles.setAttribute("animation", "property: rotation; to: 0 0 360; loop: true; easing: linear; dur: 3000");
-          setTimeout(() => {
-            pringles.setAttribute("animation", "");
-            pringles.setAttribute("rotation", "0 0 0");
-          }, 3000);
-        });
+        pringles.setAttribute('visible', true);
+        pringles.setAttribute("animation", "property: rotation; to: 0 0 360; loop: true; easing: linear; dur: 3000");
+        setTimeout(() => {
+          pringles.setAttribute("animation", "");
+          pringles.setAttribute("rotation", "0 0 0");
+        }, 3000);
 
+        marker.addEventListener('markerFound', () => {
+          console.log('marker found');
+        });
       }
     });
 
