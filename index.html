@@ -13,6 +13,26 @@
     src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
 
+  <script>
+    AFRAME.registerComponent("pringles", {
+      init() {
+        const pringles = document.getElementById("pringles");
+        const marker = document.getElementById("pringles-marker");
+
+        pringles.setAttribute("visible", true);
+        pringles.setAttribute("animation", "property: rotation; to: 0 0 360; loop: true; easing: linear; dur: 3000");
+        setTimeout(() => {
+          pringles.setAttribute("animation", "");
+          pringles.setAttribute("rotation", "0 0 0");
+        }, 3000);
+
+        marker.addEventListener("markerFound", () => {
+          alert("marker found");
+        });
+      }
+    });
+  </script>
+
   <style>
     .arjs-loader {
       height: 100%;
@@ -36,7 +56,7 @@
   </style>
 
   <script>
-    alert("versao 16");
+    alert("versao 17");
   </script>
 </head>
 
@@ -60,26 +80,4 @@
     </a-nft>
     <a-entity camera></a-entity>
   </a-scene>
-
-  <script>
-    AFRAME.registerComponent('pringles', {
-      init() {
-        const pringles = document.getElementById('pringles');
-        const marker = document.getElementById('pringles-marker');
-
-        pringles.setAttribute('visible', true);
-        pringles.setAttribute("animation", "property: rotation; to: 0 0 360; loop: true; easing: linear; dur: 3000");
-        setTimeout(() => {
-          pringles.setAttribute("animation", "");
-          pringles.setAttribute("rotation", "0 0 0");
-        }, 3000);
-
-        marker.addEventListener('markerFound', () => {
-          console.log('marker found');
-        });
-      }
-    });
-
-
-  </script>
 </body>
