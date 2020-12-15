@@ -55,20 +55,20 @@
 <body style="margin : 0px; overflow: hidden;">
   <!-- minimal loader shown until image descriptors are loaded -->
   <div class="loading">
-    <div>Loading, please wait...</div>
+    <div>Carregando...</div>
   </div>
 
   <a-scene vr-mode-ui="enabled: false;" renderer="logarithmicDepthBuffer: true;" embedded
     arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;">
 
-    <a-nft type="nft" id="marker" url="ar-image-tracking/marker/lasanha/lasanha" smooth="true" smoothCount="50"
+    <a-nft type="nft" id="marker" url="/ar-image-tracking/marker/lasanha/lasanha" smooth="true" smoothCount="50"
       smoothToloothThreshold="20" emitevents="true">
 
       <a-entity scene position="0 0 0" scale="1 1 1">
-        <!-- <a-entity object visible="true" rotation="0 0 0"
+        <a-entity object visible="true" rotation="0 0 0"
           obj-model="obj: url(/ar-image-tracking/models/seara/logo.obj); mtl: url(/ar-image-tracking/models/seara/logo.mtl)">
-        </a-entity> -->
-        <a-gltf-model src="/ar-image-tracking/models/seara/logo.gltf"></a-gltf-model>
+        </a-entity>
+        <!-- <a-gltf-model src="/ar-image-tracking/models/seara/logo.gltf"></a-gltf-model> -->
       </a-entity>
     </a-nft>
     <a-entity camera></a-entity>
