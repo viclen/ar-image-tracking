@@ -58,14 +58,21 @@
   <!-- minimal loader shown until image descriptors are loaded -->
   <div class="loading">
     <div>
-      Versão 9
+      Versão 10
       <br>
       Carregando...
     </div>
   </div>
 
-  <a-scene menu vr-mode-ui="enabled: false;" renderer="logarithmicDepthBuffer: true;" embedded
-    arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;">
+  <a-scene menu vr-mode-ui="enabled: false;" embedded
+    arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;" renderer="
+    antialias: true;
+    logarithmicDepthBuffer: auto;
+    colorManagement: true;
+    sortObjects: false;
+    physicallyCorrectLights: true;
+    precision: low;
+  ">
     <a-assets>
       <img id="ingredientes-utilizados" src="./img/menu/ingredientes-utilizados.png">
       <img id="kit-especial" src="./img/menu/kit-especial.png">
@@ -74,8 +81,8 @@
       <img id="seara-logo" src="./img/seara-logo.png">
     </a-assets>
 
-    <a-nft type="nft" id="marker" url="/ar-image-tracking/marker/lasanha/lasanha" smooth="true" smoothCount="50"
-      smoothToloothThreshold="20" emitevents="true">
+    <a-nft type="nft" id="marker" url="/ar-image-tracking/marker/lasanha/lasanha" smooth="true" smoothCount="10"
+      smoothTolerance=".01" smoothThreshold="5" emitevents="true">
       <a-entity visible="true" id="screen" position="0 0 0" rotation="-90 360 0" scale="30 30 30">
         <a-image id="index1" href="https://www.seara.com.br" class="cantap" position="2 2 0" rotation="0 0 0"
           scale="1 1 1" width="0.9" height="0.9" opacity="1" src="#ingredientes-utilizados" roughness="1" visible="true"
@@ -97,7 +104,7 @@
           material="" geometry="">
         </a-image>
 
-        <a-image id="index5" class="cantap" position="-1 1 0" rotation="0 0 0" scale="1 1 1" width="2" height="2"
+        <a-image id="index5" class="cantap" position="-1 1.5 0" rotation="0 0 0" scale="1 1 1" width="3.5" height="3"
           opacity="1" src="#seara-logo" roughness="1" visible="true" material="" geometry="">
         </a-image>
       </a-entity>
@@ -106,9 +113,6 @@
     <a-entity camera raycaster="objects: .cantap" cursor="fuse: false; rayOrigin: mouse;" wasd-controls-enabled="false"
       position="" rotation="" look-controls="" wasd-controls="">
     </a-entity>
-
-    <canvas class="a-canvas a-grab-cursor a-mouse-cursor-hover" data-aframe-canvas="true" width="1204"
-      height="980"></canvas>
 
     <a-light type="ambient" intensity="1" light=""></a-light>
   </a-scene>
