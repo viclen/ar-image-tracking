@@ -48,7 +48,7 @@
   </style>
 
   <script>
-    alert("versao 2");
+    alert("versao 3");
   </script>
 </head>
 
@@ -65,9 +65,10 @@
       smoothToloothThreshold="20" emitevents="true">
 
       <a-entity scene position="0 0 0" scale="1 1 1">
-        <a-entity object visible="true" rotation="0 0 0"
-          obj-model="obj: url(/ar-image-tracking/models/pringles/pringles.obj); mtl: url(/ar-image-tracking/models/seara/logo.gltf)">
-        </a-entity>
+        <!-- <a-entity object visible="true" rotation="0 0 0"
+          obj-model="obj: url(/ar-image-tracking/models/seara/logo.obj); mtl: url(/ar-image-tracking/models/seara/logo.mtl)">
+        </a-entity> -->
+        <a-gltf-model src="/ar-image-tracking/models/seara/logo.gltf"></a-gltf-model>
       </a-entity>
     </a-nft>
     <a-entity camera></a-entity>
