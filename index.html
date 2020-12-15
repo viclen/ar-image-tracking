@@ -23,26 +23,6 @@
         });
       }
     });
-
-    AFRAME.registerComponent("helix", {
-      init: function () {
-        const helix = document.getElementById("helix");
-        const marker = document.getElementById("marker");
-        const scene = document.querySelector("[scene]");
-
-        marker.addEventListener("markerFound", () => {
-          scene.setAttribute("animation", "property: scale; from: 1 1 1; to: 10 10 10; loop: false; dur: 200");
-
-          helix.setAttribute("visible", true);
-          helix.setAttribute("animation", "property: rotation; to: 0 0 360; loop: true; easing: linear; dur: 500");
-          setTimeout(() => {
-            scene.setAttribute("animation", "");
-
-            helix.setAttribute("visible", false);
-          }, 2000);
-        });
-      }
-    });
   </script>
 
   <style>
@@ -68,7 +48,7 @@
   </style>
 
   <script>
-    alert("versao 25");
+    alert("versao 1");
   </script>
 </head>
 
@@ -82,15 +62,11 @@
     arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;">
 
     <a-nft type="nft" id="marker" url="ar-image-tracking/marker/pringles" smooth="true" smoothCount="50"
-      smoothTolerance="5" smoothThreshold="20" emitevents="true">
+      smoothToloothThreshold="20" emitevents="true">
 
       <a-entity scene position="0 0 0" scale="1 1 1">
         <a-entity object visible="true" rotation="0 0 0"
-          obj-model="obj: url(/ar-image-tracking/models/pringles/pringles.obj); mtl: url(/ar-image-tracking/models/pringles/pringles.mtl)">
-        </a-entity>
-
-        <a-entity helix visible="false" id="helix" position="0 0 10" rotation="0 0 0" scale="1 1 1"
-          obj-model="obj: url(/ar-image-tracking/models/helix/helix.obj); mtl: url(/ar-image-tracking/models/helix/helix.mtl)">
+          obj-model="obj: url(/ar-image-tracking/models/pringles/pringles.obj); mtl: url(/ar-image-tracking/models/seara/logo.gltf)">
         </a-entity>
       </a-entity>
     </a-nft>
