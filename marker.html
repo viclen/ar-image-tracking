@@ -81,33 +81,33 @@
     </a-assets>
 
     <a-marker preset="hiro" smooth="true" smoothCount="50" smoothTolerance="1" smoothThreshold="15" emitevents="true">
-      <a-entity visible="true" id="screen" position="0 0 0" rotation="-90 0 0" scale="1 1 1">
-        <a-image id="index1" href="https://www.seara.com.br" class="cantap" position="0.5 0 0" rotation="0 0 0"
+      <a-entity visible="true" id="screen" rotation="-90 360 0">
+        <a-image href="https://www.seara.com.br" id="index1" class="cantap" position="0.5 2 -1" rotation="0 0 0"
           scale="1 1 1" width="0.9" height="0.9" opacity="1" src="#ingredientes-utilizados" roughness="1" visible="true"
           material="" geometry="">
         </a-image>
 
-        <a-image id="index2" href="https://www.seara.com.br" class="cantap" position="1.5 0 0" rotation="0 0 0"
+        <a-image href="https://www.seara.com.br" id="index2" class="cantap" position="0.5 1 -1" rotation="0 0 0"
           scale="1 1 1" width="0.9" height="0.9" opacity="1" src="#kit-especial" roughness="1" visible="true"
           material="" geometry="">
         </a-image>
 
-        <a-image id="index3" href="https://www.seara.com.br" class="cantap" position="2.5 0 0" rotation="0 0 0"
+        <a-image href="https://www.seara.com.br" id="index3" class="cantap" position="0.5 -0 -1" rotation="0 0 0"
           scale="1 1 1" width="0.9" height="0.9" opacity="1" src="#modo-de-preparo" roughness="1" visible="true"
           material="" geometry="">
         </a-image>
 
-        <a-image id="index4" href="https://www.seara.com.br" class="cantap" position="3.5 0 0" rotation="0 0 0"
+        <a-image href="https://www.seara.com.br" id="index4" class="cantap" position="0.5 -1 -1" rotation="0 0 0"
           scale="1 1 1" width="0.9" height="0.9" opacity="1" src="#personalize-lasanha" roughness="1" visible="true"
           material="" geometry="">
         </a-image>
       </a-entity>
-      </a-nft>
+    </a-marker>
 
-      <a-entity camera raycaster="objects: .cantap" cursor="fuse: false; rayOrigin: mouse;"
-        wasd-controls-enabled="false" position="" rotation="0 0 0" look-controls="false" wasd-controls="">
-      </a-entity>
+    <a-entity camera raycaster="objects: .cantap" cursor="fuse: false; rayOrigin: mouse;" wasd-controls-enabled="false"
+      position="" rotation="0 0 0" look-controls="false" wasd-controls="">
+    </a-entity>
 
-      <a-light type="ambient" intensity="1" light=""></a-light>
+    <a-light type="ambient" intensity="1" light=""></a-light>
   </a-scene>
 </body>
