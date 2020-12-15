@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>AR SEARA</title>
+
+  <meta aframe-injected="" name="viewport"
+    content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no,user-scalable=no,minimal-ui,viewport-fit=cover">
+  <meta aframe-injected="" name="theme-color" content="black">
+  <meta aframe-injected="" name="mobile-web-app-capable" content="yes">
+
+  <script
+    src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+
+  <script>
+    AFRAME.registerComponent("menu", {
+      schema: {},
+      init: function () {
+        document.querySelectorAll(".cantap").forEach((element) => {
+          if (element.getAttribute("href")) {
+            element.addEventListener("click", function (e) {
+              window.open(element.getAttribute("href"));
+            });
+          }
+        });
+      },
+    });
+  </script>
+
+  <style>
+    .loading {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .loading div {
+      text-align: center;
+      font-size: 1.25em;
+      color: white;
+    }
+  </style>
+
+  <script>
+    alert("versao 5");
+  </script>
+</head>
+
+<body style="margin : 0px; overflow: hidden;">
+  <!-- minimal loader shown until image descriptors are loaded -->
+  <div class="loading">
+    <div>Carregando...</div>
+  </div>
+
+  <a-scene menu vr-mode-ui="enabled: false;" renderer="logarithmicDepthBuffer: true;" embedded
+    arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;">
+
+    <a-assets>
+      <img id="ingredientes-utilizados" src="./img/menu/ingredientes-utilizados.png">
+      <img id="kit-especial" src="./img/menu/kit-especial.png">
+      <img id="modo-de-preparo" src="./img/menu/modo-de-preparo.png">
+      <img id="personalize-lasanha" src="./img/menu/personalize-lasanha.png">
+    </a-assets>
+
+    <a-nft type="nft" id="marker" url="/ar-image-tracking/marker/lasanha/lasanha" smooth="true" smoothCount="50"
+      smoothToloothThreshold="20" emitevents="true">
+      <a-entity visible="true" id="screen" rotation="-90 360 0">
+        <a-image href="https://www.seara.com.br" class="cantap" position="0.5 2 -1" rotation="0 0 0" scale="1 1 1"
+          width="0.9" height="0.9" opacity="1" src="#ingredientes-utilizados" roughness="1" visible="true" material=""
+          geometry="">
+        </a-image>
+
+        <a-image href="https://www.seara.com.br" class="cantap" position="0.5 1 -1" rotation="0 0 0" scale="1 1 1"
+          width="0.9" height="0.9" opacity="1" src="#kit-especial" roughness="1" visible="true" material="" geometry="">
+        </a-image>
+
+        <a-image href="https://www.seara.com.br" class="cantap" position="0.5 -0 -1" rotation="0 0 0" scale="1 1 1"
+          width="0.9" height="0.9" opacity="1" src="#modo-de-preparo" roughness="1" visible="true" material=""
+          geometry="">
+        </a-image>
+
+        <a-image href="https://www.seara.com.br" class="cantap" position="0.5 -1 -1" rotation="0 0 0" scale="1 1 1"
+          width="0.9" height="0.9" opacity="1" src="#personalize-lasanha" roughness="1" visible="true" material=""
+          geometry="">
+        </a-image>
+
+        <a-image class="cantap" position="-1.1 -0.8 -1.3" rotation="0 0 0" scale="1 1 1" width="2.5" height="3.8"
+          opacity="1" src="#seara-logo" roughness="1" visible="true" material="" geometry="">
+        </a-image>
+      </a-entity>
+
+    </a-nft>
+    <a-entity camera raycaster="objects: .cantap" cursor="fuse: false; rayOrigin: mouse;" wasd-controls-enabled="false"
+      position="" rotation="" look-controls="" wasd-controls="">
+    </a-entity>
+
+    <canvas class="a-canvas a-grab-cursor a-mouse-cursor-hover" data-aframe-canvas="true" width="1204"
+      height="980"></canvas>
+
+    <a-light type="ambient" intensity="1" light=""></a-light>
+  </a-scene>
+</body>
